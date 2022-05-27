@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "825926580367",
+    "project_id": "catat-a4880",
+    "storage_bucket": "catat-a4880.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:825926580367:android:748d8d0b0aae8c2f4e58fa",
+        "android_client_info": {
+          "package_name": "com.fakhrif.catat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "825926580367-8duhdttvegmqdgdbmllr894t6k29snsu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAz3kjinwDXMO9ELYuAt0AJSa8p9jEn1nk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "825926580367-8duhdttvegmqdgdbmllr894t6k29snsu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
