@@ -482,7 +482,7 @@ class _ReadNotesPageState extends State<ReadNotesPage> {
                       ),
                       controller: label,
                       onTap: () {
-                        Future.delayed(Duration(milliseconds: 500), () {
+                        Future.delayed(const Duration(milliseconds: 500), () {
                           updateNotebooks(
                               notebook: judul.text,
                               uid: currentUser?.uid,

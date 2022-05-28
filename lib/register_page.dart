@@ -41,7 +41,11 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(left: 35.0, right: 35.0),
+        padding: MediaQuery.of(context).size.width >= 1200
+            ? EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.3,
+                right: MediaQuery.of(context).size.width * 0.3)
+            : EdgeInsets.only(left: 35.0, right: 35.0),
         child: ListView(
           children: [
             //Register Page with name, email, password, confirm password
@@ -141,7 +145,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(width: 5),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, '/privacy_policy');
+                    // Navigator.pushNamed(context, '/privacy_policy');
                   },
                   child: const Text(
                     "Kebijakan Privasi",
@@ -206,8 +210,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     context: context,
                   );
                   if (user != null) {
-                    // ignore: use_build_context_synchronously
-                    Navigator.pushReplacementNamed(context, '/register/2');
+                    Navigator.pushReplacementNamed(context, '/register/data');
                   } else {
                     Navigator.pop(context);
                     final snackBar = SnackBar(
@@ -348,10 +351,11 @@ class _Register2PageState extends State<Register2Page> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(
-          left: 35.0,
-          right: 35.0,
-        ),
+        padding: MediaQuery.of(context).size.width >= 1200
+            ? EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.3,
+                right: MediaQuery.of(context).size.width * 0.3)
+            : EdgeInsets.only(left: 35.0, right: 35.0),
         child: ListView(
           children: [
             //Register Page with name, email, password, confirm password

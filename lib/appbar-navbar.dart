@@ -25,12 +25,13 @@ class AppBarA extends StatelessWidget {
         ),
       ),
       child: Padding(
-          padding: EdgeInsets.only(left: 16.0, top: 50),
+          padding: const EdgeInsets.only(left: 16.0, top: 50),
           child: Builder(builder: (context) {
             if (title == "Catatan" || title == "Buku Catatan") {
               return Text(
                 title,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               );
             } else {
               return Row(
@@ -40,12 +41,13 @@ class AppBarA extends StatelessWidget {
                     "assets/icons/Notebook_ico.png",
                     width: 15,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Text(
                     title,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                 ],
               );
@@ -184,7 +186,7 @@ class DrawerWidget extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.home, color: Colors.black),
+            leading: const Icon(Icons.home, color: Colors.black),
             title: const Text('Beranda'),
             onTap: () {
               if (pageActive == "Home") {

@@ -1,12 +1,9 @@
 import 'dart:async';
 
-import 'package:catat_app/login_page.dart';
 import 'package:catat_app/my_flutter_app_icons.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:catat_app/my_flutter_app_icons.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({Key? key}) : super(key: key);
@@ -16,6 +13,7 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
+  // ignore: prefer_typing_uninitialized_variables
   var picprof;
   TextEditingController pic = TextEditingController();
 

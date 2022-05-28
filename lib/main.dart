@@ -1,4 +1,5 @@
 // import 'dart:async';
+import 'package:catat_app/responsive.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:catat_app/account_page.dart';
@@ -154,7 +155,7 @@ class _MyAppState extends State<MyApp> {
         '/welcome': (context) => const WelcomePage(),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
-        '/register/2': (context) => const Register2Page(),
+        '/register/data': (context) => const Register2Page(),
         '/home': (context) => HomePage(),
         '/note-list': (context) => const NotesListPage(),
         '/account': (context) => const AccountPage(),
@@ -209,16 +210,39 @@ class WelcomePage extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       )),
-                  child: SizedBox(
-                    height: 50,
-                    width: MediaQuery.of(context).size.width * 0.6,
-                    child: const Center(
-                      child: Text(
-                        'Mari Mulai!',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
-                  ),
+                  child: Builder(builder: (context) {
+                    return Responsive(
+                        mobile: SizedBox(
+                          height: 50,
+                          width: MediaQuery.of(context).size.width * 0.6,
+                          child: const Center(
+                            child: Text(
+                              'Mari Mulai!',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ),
+                        ),
+                        tablet: SizedBox(
+                          height: 50,
+                          width: MediaQuery.of(context).size.width * 0.4,
+                          child: const Center(
+                            child: Text(
+                              'Mari Mulai!',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ),
+                        ),
+                        dekstop: SizedBox(
+                          height: 50,
+                          width: MediaQuery.of(context).size.width * 0.2,
+                          child: const Center(
+                            child: Text(
+                              'Mari Mulai!',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ),
+                        ));
+                  }),
                   onPressed: () {
                     Navigator.of(context).pushNamed('/login');
                   },

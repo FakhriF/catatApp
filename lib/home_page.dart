@@ -57,8 +57,11 @@ class HomePage extends StatelessWidget {
     return FirebaseFirestore.instance.collection('users').doc(uid).snapshots();
   }
 
+  String? teks;
+
   @override
   Widget build(BuildContext context) {
+    TextEditingController isi = TextEditingController(text: teks);
     // LastAccessUser();
     return Scaffold(
         extendBodyBehindAppBar: true,
@@ -291,42 +294,52 @@ class HomePage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             const Text("Scratch Pad"),
-                            StreamBuilder(
-                              stream: FirebaseFirestore.instance
-                                  .collection(
-                                      'users/${currentUser?.uid}/scratch-pad')
-                                  .doc('scratch-pad')
-                                  .snapshots(),
-                              builder: (context,
-                                  AsyncSnapshot<DocumentSnapshot> snapshot) {
-                                var userDocument = snapshot.data;
-                                String? teks;
+                            Row(
+                              children: [
+                                GestureDetector(
+                                    onTap: () {},
+                                    child:
+                                        Icon(Icons.add, color: primaryColor)),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                StreamBuilder(
+                                  stream: FirebaseFirestore.instance
+                                      .collection(
+                                          'users/${currentUser?.uid}/scratch-pad')
+                                      .doc('scratch-pad')
+                                      .snapshots(),
+                                  builder: (context,
+                                      AsyncSnapshot<DocumentSnapshot>
+                                          snapshot) {
+                                    var userDocument = snapshot.data;
 
-                                if (snapshot.data?.exists == false) {
-                                  teks = 'Tulis sesuatu...';
-                                } else {
-                                  teks = userDocument?['content'];
-                                }
-                                TextEditingController isi =
-                                    TextEditingController(text: teks);
-                                return GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => AddNotesPage(
-                                                labels: "My Notebook",
-                                                judul:
-                                                    "ScratchPad-${DateTime.now().month}/${DateTime.now().day}-${DateTime.now().hour}:${DateTime.now().minute}",
-                                                isi: isi.text)));
-                                    addScratchPad(isi: "");
+                                    if (snapshot.data?.exists == false) {
+                                      teks = 'Tulis sesuatu...';
+                                    } else {
+                                      teks = userDocument?['content'];
+                                    }
+
+                                    return GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => AddNotesPage(
+                                                    labels: "My Notebook",
+                                                    judul:
+                                                        "ScratchPad-${DateTime.now().month}/${DateTime.now().day}-${DateTime.now().hour}:${DateTime.now().minute}",
+                                                    isi: isi.text)));
+                                        addScratchPad(isi: "");
+                                      },
+                                      child: Icon(
+                                        Icons.navigate_next,
+                                        color: primaryColor, // size: 23,
+                                      ),
+                                    );
                                   },
-                                  child: Icon(
-                                    Icons.navigate_next,
-                                    color: primaryColor, // size: 23,
-                                  ),
-                                );
-                              },
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -342,15 +355,13 @@ class HomePage extends StatelessWidget {
                             builder: (context,
                                 AsyncSnapshot<DocumentSnapshot> snapshot) {
                               var userDocument = snapshot.data;
-                              String? teks;
 
                               if (snapshot.data?.exists == false) {
                                 teks = 'Tulis sesuatu...';
                               } else if (snapshot.hasData) {
                                 teks = userDocument?['content'];
                               }
-                              TextEditingController isi =
-                                  TextEditingController(text: teks);
+
                               // bool read = false;
                               // TextEditingController isi = TextEditingController(
                               //   text: userDocument?['content'] ??

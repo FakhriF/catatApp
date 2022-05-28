@@ -1,4 +1,5 @@
 import 'package:catat_app/colors.dart';
+import 'package:catat_app/responsive.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -48,7 +49,11 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(left: 35.0, right: 35.0),
+        padding: MediaQuery.of(context).size.width >= 1200
+            ? EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.3,
+                right: MediaQuery.of(context).size.width * 0.3)
+            : EdgeInsets.only(left: 35.0, right: 35.0),
         child: ListView(
           children: [
             const SizedBox(height: 70),
