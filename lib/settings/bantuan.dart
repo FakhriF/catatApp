@@ -20,9 +20,14 @@ class BantuanPage extends StatelessWidget {
         elevation: 0,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: MediaQuery.of(context).size.width >= 1200
+            ? EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.3,
+                right: MediaQuery.of(context).size.width * 0.3)
+            : const EdgeInsets.only(left: 35.0, right: 35.0),
         child: Column(
           children: [
+            const SizedBox(height: 70),
             const Text(
               "Silahkan isi formulir ini secara lengkap dan benar, agar mudah diproses~!\nPertanyaan atau Permintaan Anda akan direspon dan dikirim melalui alamat email yang Anda gunakan saat ini\n\nTerima Kasih!",
               style: TextStyle(fontSize: 15),

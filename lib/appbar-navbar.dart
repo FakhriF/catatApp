@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:catat_app/add_noted.dart';
 import 'package:catat_app/colors.dart';
 import 'package:flutter/material.dart';
@@ -236,6 +238,18 @@ class DrawerWidget extends StatelessWidget {
               Navigator.pushNamed(context, '/settings');
             },
           ),
+          if (MediaQuery.of(context).size.width >= 1200) ...[
+            ListTile(
+              leading: const Icon(
+                Icons.android_rounded,
+                color: Colors.black,
+              ),
+              title: const Text('Dapatkan Aplikasinya!'),
+              onTap: () {
+                Navigator.pushNamed(context, '/404');
+              },
+            ),
+          ]
         ],
       ),
     );

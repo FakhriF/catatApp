@@ -7,6 +7,7 @@ import 'package:catat_app/colors.dart';
 import 'package:catat_app/firestore.dart';
 import 'package:catat_app/notebooks_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 // ignore: depend_on_referenced_packages
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -200,6 +201,7 @@ class HomePage extends StatelessWidget {
                               );
                             } else {
                               return ListView(
+                                // controller: ScrollController(),
                                 scrollDirection: Axis.horizontal,
                                 shrinkWrap: true,
                                 children: snapshot.data!.docs
@@ -280,6 +282,9 @@ class HomePage extends StatelessWidget {
                           },
                         ),
                       ),
+                      // SizedBox(
+                      //   height: 14,
+                      // )
                     ],
                   ),
                   SizedBox(
@@ -297,9 +302,11 @@ class HomePage extends StatelessWidget {
                             Row(
                               children: [
                                 GestureDetector(
-                                    onTap: () {},
+                                    onTap: () {
+                                      addScratchPad(isi: isi.text);
+                                    },
                                     child:
-                                        Icon(Icons.add, color: primaryColor)),
+                                        Icon(Icons.check, color: primaryColor)),
                                 SizedBox(
                                   width: 20,
                                 ),
@@ -361,6 +368,8 @@ class HomePage extends StatelessWidget {
                               } else if (snapshot.hasData) {
                                 teks = userDocument?['content'];
                               }
+                              TextEditingController isiScr =
+                                  TextEditingController(text: teks);
 
                               // bool read = false;
                               // TextEditingController isi = TextEditingController(
@@ -387,7 +396,7 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsets.all(5.0),
+                                  padding: const EdgeInsets.all(5.0),
                                   child: GestureDetector(
                                     // onDoubleTap: () {
                                     //   setState(() {
@@ -395,11 +404,13 @@ class HomePage extends StatelessWidget {
                                     //   });
                                     // },
                                     child: TextField(
-                                      controller: isi,
+                                      controller: isiScr,
                                       onTap: () {
+                                        isi = isiScr;
                                         Future.delayed(
-                                            Duration(milliseconds: 250), () {
-                                          addScratchPad(isi: isi.text);
+                                            const Duration(milliseconds: 250),
+                                            () {
+                                          addScratchPad(isi: isiScr.text);
                                         });
                                       },
                                       // onChanged: (text) {
@@ -411,7 +422,7 @@ class HomePage extends StatelessWidget {
                                       enabled: true,
                                       maxLines: null,
                                       keyboardType: TextInputType.multiline,
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                         border: InputBorder.none,
                                         hintText: "Tulis sesuatu...",
                                       ),

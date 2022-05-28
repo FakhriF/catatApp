@@ -45,12 +45,7 @@ class _SettingPageState extends State<SettingPage> {
               ),
               title: const Text('Akun'),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const AccountPage(),
-                  ),
-                );
+                Navigator.pushNamed(context, '/home');
               },
             ),
             ListTile(
@@ -91,12 +86,7 @@ class _SettingPageState extends State<SettingPage> {
               ),
               title: const Text('Feedback Hub'),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AccountPage(),
-                  ),
-                );
+                Navigator.pushNamed(context, '/404');
               },
             ),
             ListTile(

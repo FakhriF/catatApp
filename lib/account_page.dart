@@ -589,8 +589,9 @@ Future<void> alertDialogSignOut({required context}) {
             child: const Text('Ya'),
             onPressed: () {
               FirebaseAuth.instance.signOut();
-              Navigator.of(context).pop();
+              Navigator.pop(context);
               Navigator.pushReplacementNamed(context, '/welcome');
+              Navigator.pop(context);
             },
           ),
         ],

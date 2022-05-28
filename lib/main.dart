@@ -1,6 +1,8 @@
 // import 'dart:async';
+import 'package:catat_app/notfound_page.dart';
 import 'package:catat_app/responsive.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/gestures.dart';
 import 'firebase_options.dart';
 import 'package:catat_app/account_page.dart';
 import 'package:catat_app/add_noted.dart';
@@ -119,6 +121,14 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scrollBehavior: MaterialScrollBehavior().copyWith(
+        dragDevices: {
+          PointerDeviceKind.mouse,
+          PointerDeviceKind.touch,
+          PointerDeviceKind.stylus,
+          PointerDeviceKind.unknown
+        },
+      ),
       title: 'Catat!',
       debugShowCheckedModeBanner: false,
       home: FutureBuilder(
@@ -151,6 +161,7 @@ class _MyAppState extends State<MyApp> {
       //     FirebaseAuth.instance.currentUser == null ? '/welcome' : '/home',
       routes: {
         //   // '/': (context) => const LoginPage(),
+        '/404': (context) => const NotFoundPage(),
         '/loading': (context) => const LoadingPage(),
         '/welcome': (context) => const WelcomePage(),
         '/login': (context) => const LoginPage(),
