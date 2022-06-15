@@ -25,20 +25,11 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for linux - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return linux;
       default:
         throw UnsupportedError(
           'DefaultFirebaseOptions are not supported for this platform.',
@@ -72,5 +63,35 @@ class DefaultFirebaseOptions {
     storageBucket: 'catat-a4880.appspot.com',
     iosClientId: '825926580367-8m58vbil8ag2dcrchqrtg9ds3rdojo1r.apps.googleusercontent.com',
     iosBundleId: 'com.example.catatApp',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyB8djBzObtQ-iWbctp0Lf9pjOJKElNUqhg',
+    appId: '1:825926580367:ios:443f88628e2cf7124e58fa',
+    messagingSenderId: '825926580367',
+    projectId: 'catat-a4880',
+    storageBucket: 'catat-a4880.appspot.com',
+    iosClientId: '825926580367-jabhrv5e40hcpudqq1dcm1f5r37fokdo.apps.googleusercontent.com',
+    iosBundleId: 'com.fakhrif.catatApp',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyDv2srrn3QfejUEPR2ae5oLxPbz4l9MctE',
+    appId: '1:825926580367:web:93bf431c09070ce84e58fa',
+    messagingSenderId: '825926580367',
+    projectId: 'catat-a4880',
+    authDomain: 'catat-a4880.firebaseapp.com',
+    storageBucket: 'catat-a4880.appspot.com',
+    measurementId: 'G-2QXQK1SVFD',
+  );
+
+  static const FirebaseOptions linux = FirebaseOptions(
+    apiKey: 'AIzaSyDv2srrn3QfejUEPR2ae5oLxPbz4l9MctE',
+    appId: '1:825926580367:web:551fd99265011b0d4e58fa',
+    messagingSenderId: '825926580367',
+    projectId: 'catat-a4880',
+    authDomain: 'catat-a4880.firebaseapp.com',
+    storageBucket: 'catat-a4880.appspot.com',
+    measurementId: 'G-PJ1DSD8SH5',
   );
 }

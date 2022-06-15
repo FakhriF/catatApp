@@ -31,58 +31,63 @@ class _AccountPageState extends State<AccountPage> {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            Container(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  StreamBuilder(
-                      stream: FirebaseFirestore.instance
-                          .collection('users')
-                          .doc(FirebaseAuth.instance.currentUser?.uid)
-                          .snapshots(),
-                      builder:
-                          (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
-                        if (!snapshot.hasData) {
-                          return const Text("Wait..");
-                        }
-                        var userDocument = snapshot.data!;
-                        return Container(
-                            width: 60,
-                            height: 60,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                filterQuality: FilterQuality.high,
-                                image: userDocument['gender'] == "Laki-laki"
-                                    ? const AssetImage(
-                                        "assets/pic_prof/men1_prof.png")
-                                    : const AssetImage(
-                                        "assets/pic_prof/women1_prof.png"),
-                                fit: BoxFit.cover,
-                              ),
-                            ));
-                      }),
-                  //profil picture virlce
-                  const SizedBox(
-                    width: 15,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "${FirebaseAuth.instance.currentUser?.displayName}",
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/profile');
+              },
+              child: Container(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    StreamBuilder(
+                        stream: FirebaseFirestore.instance
+                            .collection('users')
+                            .doc(FirebaseAuth.instance.currentUser?.uid)
+                            .snapshots(),
+                        builder: (context,
+                            AsyncSnapshot<DocumentSnapshot> snapshot) {
+                          if (!snapshot.hasData) {
+                            return const Text("Wait..");
+                          }
+                          var userDocument = snapshot.data!;
+                          return Container(
+                              width: 60,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  filterQuality: FilterQuality.high,
+                                  image: userDocument['gender'] == "Laki-Laki"
+                                      ? const AssetImage(
+                                          "assets/pic_prof/men1_prof.png")
+                                      : const AssetImage(
+                                          "assets/pic_prof/women1_prof.png"),
+                                  fit: BoxFit.cover,
+                                ),
+                              ));
+                        }),
+                    //profil picture virlce
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "${FirebaseAuth.instance.currentUser?.displayName}",
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Text("${FirebaseAuth.instance.currentUser?.email}"),
-                    ],
-                  )
-                ],
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text("${FirebaseAuth.instance.currentUser?.email}"),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
             const SizedBox(
@@ -226,12 +231,16 @@ class reAuthenticatePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(left: 35.0, right: 35.0),
+        padding: MediaQuery.of(context).size.width >= 1200
+            ? EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.3,
+                right: MediaQuery.of(context).size.width * 0.3)
+            : EdgeInsets.only(left: 35.0, right: 35.0),
         child: ListView(
           children: [
             const SizedBox(height: 70),
             const Text(
-              "LOGIN",
+              "RE-LOGIN",
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.w700,

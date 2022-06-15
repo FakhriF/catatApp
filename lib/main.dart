@@ -1,22 +1,14 @@
 // import 'dart:async';
-import 'package:catat_app/notfound_page.dart';
+import 'package:catat_app/main_myApp.dart';
+
 import 'package:catat_app/responsive.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/gestures.dart';
-import 'firebase_options.dart';
-import 'package:catat_app/account_page.dart';
-import 'package:catat_app/add_noted.dart';
-import 'package:catat_app/home_page.dart';
-import 'package:catat_app/loading_page.dart';
-import 'package:catat_app/login_page.dart';
-import 'package:catat_app/note_book_list_page.dart';
-import 'package:catat_app/register_page.dart';
-import 'package:catat_app/settings/settings_page.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
+// const apiKey = 'AIzaSyDv2srrn3QfejUEPR2ae5oLxPbz4l9MctE';
+// const projectId = 'catat-a4880';
 
 void main() {
+  // Firestore.initialize(projectId);
   // WidgetsFlutterBinding.ensureInitialized;
   // await Firebase.initializeApp();
   runApp(const MyApp());
@@ -71,113 +63,6 @@ void main() {
 // }
 
 // ...
-
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  // late StreamSubscription<User?> user;
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   user = FirebaseAuth.instance.authStateChanges().listen((user) {
-  //     if (user == null) {
-  //       print('User is currently signed out!');
-  //     } else {
-  //       print('User is signed in!');
-  //     }
-  //   });
-  // }
-
-  // @override
-  // void dispose() {
-  //   user.cancel();
-  //   super.dispose();
-  // }
-
-  // final uid = FirebaseAuth.instance.currentUser?.uid;
-
-  // Future LastAccessUser() async {
-  //   final docUser = FirebaseFirestore.instance.collection('users').doc(uid);
-  //   final LastAccess = FieldValue.serverTimestamp();
-  //   final json = {
-  //     'LastAccess': LastAccess,
-  //   };
-  //   await docUser.set(json);
-  // }
-
-  Future<FirebaseApp> _initializeFirebase() async {
-    FirebaseApp firebaseApp = await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-
-    return firebaseApp;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      scrollBehavior: MaterialScrollBehavior().copyWith(
-        dragDevices: {
-          PointerDeviceKind.mouse,
-          PointerDeviceKind.touch,
-          PointerDeviceKind.stylus,
-          PointerDeviceKind.unknown
-        },
-      ),
-      title: 'Catat!',
-      debugShowCheckedModeBanner: false,
-      home: FutureBuilder(
-        future: _initializeFirebase(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            FirebaseAuth.instance.authStateChanges().listen((User? user) {
-              if (user == null) {
-                // print('User is currently signed out!');
-                Navigator.pushNamed(context, '/loading');
-
-                Navigator.pushReplacementNamed(context, '/welcome');
-              } else {
-                // print('User is signed in!');
-                // LastAccessUser();
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => LoadingPage()));
-
-                Navigator.pushReplacementNamed(context, '/home');
-              }
-            });
-            return const WelcomePage();
-          }
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        },
-      ),
-      // initialRoute:
-      //     FirebaseAuth.instance.currentUser == null ? '/welcome' : '/home',
-      routes: {
-        //   // '/': (context) => const LoginPage(),
-        '/404': (context) => const NotFoundPage(),
-        '/loading': (context) => const LoadingPage(),
-        '/welcome': (context) => const WelcomePage(),
-        '/login': (context) => const LoginPage(),
-        '/register': (context) => const RegisterPage(),
-        '/register/data': (context) => const Register2Page(),
-        '/home': (context) => HomePage(),
-        '/note-list': (context) => const NotesListPage(),
-        '/account': (context) => const AccountPage(),
-        '/notebook-list': (context) => const NotebookListPage(),
-        '/add': (context) =>
-            AddNotesPage(labels: "My Notebook", judul: "", isi: ""),
-        '/settings': (context) => const SettingPage(),
-      },
-    );
-  }
-}
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);

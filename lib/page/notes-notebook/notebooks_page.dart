@@ -1,4 +1,4 @@
-import 'package:catat_app/add_noted.dart';
+import 'package:catat_app/page/notes-notebook/add_noted.dart';
 import 'package:catat_app/appbar-navbar.dart';
 import 'package:catat_app/authentication.dart';
 import 'package:catat_app/firestore.dart';

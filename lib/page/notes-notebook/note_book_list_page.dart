@@ -1,12 +1,12 @@
-import 'package:catat_app/add_noted.dart';
+import 'package:catat_app/page/notes-notebook/add_noted.dart';
 import 'package:catat_app/appbar-navbar.dart';
 import 'package:catat_app/firestore.dart';
-import 'package:catat_app/notebooks_page.dart';
+import 'package:catat_app/page/notes-notebook/notebooks_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'my_flutter_app_icons.dart';
+import '../../my_flutter_app_icons.dart';
 
 class NotesListPage extends StatefulWidget {
   const NotesListPage({Key? key}) : super(key: key);

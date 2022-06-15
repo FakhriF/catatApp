@@ -29,6 +29,13 @@
             {
               "client_id": "825926580367-8duhdttvegmqdgdbmllr894t6k29snsu.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "825926580367-8m58vbil8ag2dcrchqrtg9ds3rdojo1r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.catatApp"
+              }
             }
           ]
         }

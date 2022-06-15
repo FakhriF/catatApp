@@ -19,7 +19,7 @@ class VersionApp extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const SizedBox(
-              height: 100,
+              height: 80,
             ),
             Column(
               children: [
@@ -41,7 +41,7 @@ class VersionApp extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      "1.0.0",
+                      "1.3.0",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:catat_app/add_noted.dart';
+import 'package:catat_app/page/notes-notebook/add_noted.dart';
 import 'package:catat_app/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -74,7 +74,7 @@ class BottomNavCreate extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomAppBar(
       child: Container(
-        height: 60,
+        height: 50,
         width: MediaQuery.of(context).size.width,
         color: Colors.grey.shade300,
         child: Stack(
@@ -90,7 +90,7 @@ class BottomNavCreate extends StatelessWidget {
                 },
                 child: Image.asset(
                   "assets/icons/Menu_ico.png",
-                  width: 25,
+                  width: 20,
                 ),
               ),
             ),
@@ -117,17 +117,17 @@ class BottomNavCreate extends StatelessWidget {
                   }
                 },
                 child: Container(
-                    width: 200,
-                    height: 50,
+                    width: 125,
+                    height: 40,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(21),
                       color: primaryColor,
                     ),
                     child: const Center(
                       child: Text(
                         "+ Tambah",
                         style: TextStyle(
-                          fontSize: 22,
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
@@ -172,7 +172,7 @@ class DrawerWidget extends StatelessWidget {
                         shape: BoxShape.circle,
                         image: DecorationImage(
                           filterQuality: FilterQuality.high,
-                          image: userDocument['gender'] == "Laki-laki"
+                          image: userDocument['gender'] == "Laki-Laki"
                               ? const AssetImage(
                                   "assets/pic_prof/men1_prof.png")
                               : const AssetImage(
@@ -201,7 +201,7 @@ class DrawerWidget extends StatelessWidget {
           ListTile(
             leading: Image.asset(
               "assets/icons/Notes_ico.png",
-              width: 25,
+              width: 20,
               // color: Colors.grey,
             ),
             title: const Text('Catatan'),
@@ -238,6 +238,29 @@ class DrawerWidget extends StatelessWidget {
               Navigator.pushNamed(context, '/settings');
             },
           ),
+          // ListTile(
+          //   leading: const Icon(
+          //     Icons.settings,
+          //     color: Colors.black,
+          //   ),
+          //   title: const Text('Setting 2'),
+          //   onTap: () {
+          //     Navigator.pushNamed(context, '/register/data');
+          //   },
+          // ),
+          // ListTile(
+          //   leading: const Icon(
+          //     Icons.settings,
+          //     color: Colors.black,
+          //   ),
+          //   title: const Text('LogOUT'),
+          //   onTap: () {
+          //     FirebaseAuth.instance.signOut();
+          //     Navigator.pop(context);
+          //     Navigator.pushReplacementNamed(context, '/welcome');
+          //     Navigator.pop(context);
+          //   },
+          // ),
           if (MediaQuery.of(context).size.width >= 1200) ...[
             ListTile(
               leading: const Icon(

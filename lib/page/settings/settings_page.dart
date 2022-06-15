@@ -1,11 +1,10 @@
 import 'dart:async';
 
-import 'package:catat_app/account_page.dart';
 import 'package:catat_app/colors.dart';
-import 'package:catat_app/login_page.dart';
+import 'package:catat_app/page/login_page.dart';
 import 'package:catat_app/my_flutter_app_icons.dart';
-import 'package:catat_app/settings/bantuan.dart';
-import 'package:catat_app/settings/info_app.dart';
+import 'package:catat_app/page/settings/info_app.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +44,7 @@ class _SettingPageState extends State<SettingPage> {
               ),
               title: const Text('Akun'),
               onTap: () {
-                Navigator.pushNamed(context, '/home');
+                Navigator.pushNamed(context, '/account');
               },
             ),
             ListTile(
@@ -55,12 +54,7 @@ class _SettingPageState extends State<SettingPage> {
               ),
               title: const Text('Bantuan'),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BantuanPage(),
-                  ),
-                );
+                Navigator.pushNamed(context, '/bantuan');
               },
             ),
             // ListTile(
