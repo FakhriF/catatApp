@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) => LoadingPage()));
 
-                Navigator.pushReplacementNamed(context, '/home');
+                Navigator.pushReplacementNamed(context, '/app');
               }
             });
             return const WelcomePage();
@@ -88,7 +88,7 @@ class _MyAppState extends State<MyApp> {
         '/login': (context) => const loginGeneral(),
         '/register': (context) => const RegisterPage(),
         '/register/data': (context) => const Register2Page(),
-        '/home': (context) => HomePage(),
+        '/app': (context) => HomePage(),
         '/note-list': (context) => const NotesListPage(),
         '/account': (context) => const AccountPage(),
         '/notebook-list': (context) => const NotebookListPage(),

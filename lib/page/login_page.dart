@@ -117,7 +117,7 @@ class loginGeneral extends StatelessWidget {
                     context: context,
                   );
                   if (user != null) {
-                    Navigator.pushReplacementNamed(context, '/home');
+                    Navigator.pushReplacementNamed(context, '/app');
                     LastAccessUser();
                   } else {
                     Navigator.pop(context);

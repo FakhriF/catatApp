@@ -1,4 +1,5 @@
 import 'package:catat_app/colors.dart';
+import 'package:catat_app/crew/crew_beta.dart';
 import 'package:flutter/material.dart';
 
 class CrewHomePage extends StatelessWidget {
@@ -45,6 +46,44 @@ class CrewHomePage extends StatelessWidget {
                       ),
                       Text(
                         "Bantuan/Help",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey.shade600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DekstopHomePage()));
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          //border
+                          border: Border.all(
+                              color: Colors.blue.shade300,
+                              width: 4,
+                              style: BorderStyle.solid),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          Icons.home,
+                          size: 50,
+                          color: Colors.grey.shade600,
+                        ),
+                      ),
+                      Text(
+                        "Home Beta for Dekstop",
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,

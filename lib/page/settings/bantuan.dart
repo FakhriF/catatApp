@@ -144,22 +144,6 @@ class Stream extends StatelessWidget {
               }).toList(),
             ),
           );
-          // if (!snapshot.hasData) {
-          // return Row(
-          //   crossAxisAlignment: CrossAxisAlignment.center,
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     Center(
-          //       child: SizedBox(
-          //         width: MediaQuery.of(context).size.width * 0.5,
-          //         child: Text(
-          //           "Kamu belum pernah meminta Bantuan! Silahkan klik tombol dibawah ini untuk meminta Bantuan.",
-          //           textAlign: TextAlign.center,
-          //         ),
-          //       ),
-          //     ),
-          //   ],
-          // );
         } else if (snapshot.hasError) {
           return Center(
             child: Text("Error: ${snapshot.error}"),
@@ -360,7 +344,7 @@ class BantuanDetailPage extends StatelessWidget {
                         ),
                         const Center(
                           child: Text(
-                            "=============== BALASAN AKAN ADA DI BAWAH ===============",
+                            "== BALASAN AKAN ADA DI BAWAH ==",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                             ),

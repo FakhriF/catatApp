@@ -515,7 +515,7 @@ class _Register2PageState extends State<Register2Page> {
                   await FirebaseAuth.instance.currentUser?.updateDisplayName(
                     nama.text,
                   );
-                  Navigator.pushReplacementNamed(context, '/home');
+                  Navigator.pushReplacementNamed(context, '/app');
                 }
               },
             ),
@@ -790,7 +790,7 @@ class _Register2PageWebDekstopState extends State<Register2PageWebDekstop> {
                   await FirebaseAuth.instance.currentUser?.updateDisplayName(
                     nama.text,
                   );
-                  Navigator.pushReplacementNamed(context, '/home');
+                  Navigator.pushReplacementNamed(context, '/app');
                   alertRefresh(context: context);
 
                   //   Navigator.push(context,

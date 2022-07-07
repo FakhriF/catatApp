@@ -3,6 +3,7 @@ import 'package:catat_app/main_myApp.dart';
 
 import 'package:catat_app/responsive.dart';
 import 'package:flutter/material.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 // const apiKey = 'AIzaSyDv2srrn3QfejUEPR2ae5oLxPbz4l9MctE';
 // const projectId = 'catat-a4880';
@@ -11,6 +12,8 @@ void main() {
   // Firestore.initialize(projectId);
   // WidgetsFlutterBinding.ensureInitialized;
   // await Firebase.initializeApp();
+  setPathUrlStrategy();
+
   runApp(const MyApp());
 }
 

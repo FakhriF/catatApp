@@ -64,7 +64,7 @@ class ProfileDataPage extends StatelessWidget {
               ),
               //Nama
               const Text(
-                "Nama Kamu",
+                "Nama",
                 style: TextStyle(
                   color: Colors.grey,
                 ),
@@ -83,7 +83,7 @@ class ProfileDataPage extends StatelessWidget {
               ),
               //Email
               const Text(
-                "Email Kamu",
+                "Email",
                 style: TextStyle(
                   color: Colors.grey,
                 ),
@@ -102,7 +102,7 @@ class ProfileDataPage extends StatelessWidget {
               ),
               //Gender
               const Text(
-                "Gender Kamu",
+                "Gender",
                 style: TextStyle(
                   color: Colors.grey,
                 ),

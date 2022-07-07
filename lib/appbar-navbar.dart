@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:catat_app/crew/crew_beta.dart';
 import 'package:catat_app/page/notes-notebook/add_noted.dart';
 import 'package:catat_app/colors.dart';
 import 'package:flutter/material.dart';
@@ -194,7 +195,7 @@ class DrawerWidget extends StatelessWidget {
               if (pageActive == "Home") {
                 Navigator.pop(context);
               } else {
-                Navigator.pushNamed(context, '/home');
+                Navigator.pushNamed(context, '/app');
               }
             },
           ),
@@ -243,9 +244,10 @@ class DrawerWidget extends StatelessWidget {
           //     Icons.settings,
           //     color: Colors.black,
           //   ),
-          //   title: const Text('Setting 2'),
+          //   title: const Text('Beta'),
           //   onTap: () {
-          //     Navigator.pushNamed(context, '/register/data');
+          //     Navigator.push(context,
+          //         MaterialPageRoute(builder: (context) => BetaHomePage()));
           //   },
           // ),
           // ListTile(
